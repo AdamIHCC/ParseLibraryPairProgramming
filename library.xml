@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author Luke Matheis -->
+<library>
+    <author>
+        <name>Paulo Coelho</name>
+        <age>75</age>
+        <books>
+            <book>
+                <title>The Alchemist</title>
+                <genre>DRAMA</genre>
+                <price>12.99</price>
+                <publish_date>1988-06-01</publish_date>
+                <description>The Alchemist follows the journey of an Andalusian shepherd boy named Santiago.
+                </description>
+            </book>
+            <book>
+                <title>Brida</title>
+                <genre>YA</genre>
+                <price>11.99</price>
+                <publish_date>1990-01-01</publish_date>
+                <description>Brida tells the story of a young Irish girl on a journey of self-discovery and spiritual
+                    awakening.
+                </description>
+            </book>
+        </books>
+    </author>
+    <author>
+        <name>Jane Austen</name>
+        <age>41</age>
+        <books>
+            <book>
+                <title>Pride and Prejudice</title>
+                <genre>ROMANCE_NOVEL</genre>
+                <price>9.99</price>
+                <publish_date>1813-01-28</publish_date>
+                <description>Pride and Prejudice tells the story of Elizabeth Bennet and her complicated relationship
+                    with Mr. Darcy.
+                </description>
+            </book>
+            <book>
+                <title>Sense and Sensibility</title>
+                <genre>ROMANCE_NOVEL</genre>
+                <price>8.99</price>
+                <publish_date>1811-10-30</publish_date>
+                <description>Sense and Sensibility explores the lives and loves of two sisters, Elinor and Marianne
+                    Dashwood.
+                </description>
+            </book>
+        </books>
+    </author>
+    <author>
+        <name>Harper Lee</name>
+        <age>89</age>
+        <books>
+            <book>
+                <title>To Kill a Mockingbird</title>
+                <genre>THRILLER</genre>
+                <price>14.95</price>
+                <publish_date>1960-07-11</publish_date>
+                <description>To Kill a Mockingbird explores themes of racial injustice and the loss of innocence in the
+                    American Deep South.
+                </description>
+            </book>
+        </books>
+    </author>
+</library>
