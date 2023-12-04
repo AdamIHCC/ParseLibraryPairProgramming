@@ -15,7 +15,7 @@ public class Book {
         this.price = 0;
         this.title = "N/A";
         this.genre = Genre.ROMANCE_NOVEL;
-        this.publishDate = LocalDate.parse("1990-28-12");
+        this.publishDate = LocalDate.parse("1990-12-12");
     }
 
     public Book(String description, double price, String title, Genre genre, LocalDate publishDate) {

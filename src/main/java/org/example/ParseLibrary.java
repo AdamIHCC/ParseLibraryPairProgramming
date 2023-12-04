@@ -18,6 +18,10 @@ public class ParseLibrary extends DefaultHandler {
     public ArrayList<Author> authors;
     public ArrayList<Book> books;
 
+    public ArrayList<Author> getAuthors() {
+        return authors;
+    }
+
     // TODO Overload startTag
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes attr){
@@ -25,6 +29,8 @@ public class ParseLibrary extends DefaultHandler {
 
         if(currentTag.equals("author")){
             author = new Author();
+        } else if (currentTag.equals("books")) {
+            books = new ArrayList<Book>();
         } else if (currentTag.equals("book")) {
             book = new Book();
         }
@@ -35,6 +41,9 @@ public class ParseLibrary extends DefaultHandler {
         if(qName.equals("author")){
             authors.add(author);
             author = null;
+        } else if (qName.equals("books")) {
+            author.setBooks(books);
+            books = null;
         } else if (qName.equals("book")) {
             books.add(book);
             book = null;
@@ -53,34 +62,73 @@ public class ParseLibrary extends DefaultHandler {
                     case "age":
                         author.setAge(value);
                         break;
-                    case "book":
-                        BookSwitch(value);
+                    case "title":
+                        book.setTitle(value);
+                        break;
+                    case "genre":
+                        book.setGenre(value);
+                        break;
+                    case "price":
+                        book.setPrice(value);
+                        break;
+                    case "description":
+                        book.setDescription(value);
+                        break;
+                    case "publish_date":
+                        book.setPublishDate(value);
                         break;
                 }
             }
         }
     }
-    public void BookSwitch(String value) {
-        switch (currentTag){
-            case "title":
-                book.setTitle(value);
-                break;
-            case "genre":
-                book.setGenre(value);
-                break;
-            case "price":
-                book.setPublishDate(value);
-                break;
-            case "description":
-                book.setDescription(value);
-                break;
-        }
-    }
+
+    /**
+     * So the commented out code we originally had did not work. The program would not go into the BookSwitch
+     * method we made so when we moved everything out it started to work. We are unsure why it did not work
+     * though we suspect it was because of the book/books tag.
+     */
+//    @Override
+//    public void characters(char[] ch, int start, int length){
+//        if(currentTag != null){
+//            String value = new String(ch, start, length).trim();
+//            if(!value.isEmpty()) {
+//                switch (currentTag){
+//                    case "name":
+//                        author.setName(value);
+//                        break;
+//                    case "age":
+//                        author.setAge(value);
+//                        break;
+//                    case "book":
+//                        BookSwitch(value);
+//                        break;
+//                }
+//            }
+//        }
+//    }
+//    public void BookSwitch(String value) {
+//        switch (currentTag){
+//            case "title":
+//                book.setTitle(value);
+//                break;
+//            case "genre":
+//                book.setGenre(value);
+//                break;
+//            case "price":
+//                book.setPrice(value);
+//                break;
+//            case "description":
+//                book.setDescription(value);
+//                break;
+//            case "publish_date":
+//                book.setPublishDate(value);
+//                break;
+//        }
+//    }
     // TODO Constructor
     public ParseLibrary(String fileName) {
         try {
             authors = new ArrayList<>();
-            books = new ArrayList<>();
 
             SAXParserFactory factory = SAXParserFactory.newInstance();
 
